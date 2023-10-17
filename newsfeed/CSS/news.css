@@ -1,0 +1,348 @@
+@import url("./reset.css");
+
+@font-face {
+	font-family: "FranklinGothicBook";
+	src: url("../FONT/FranklinGothicBookRegular.ttf");
+	font-style: normal;
+	font-weight: 400;
+	color: #000000;
+	line-height: 20px;
+}
+
+body {
+	font-family: "FranklinGothicBook", sans-serif;
+	font-size: 24px;
+	margin: 0 auto;
+	max-width: 1440px;
+}
+
+
+
+/* <------------- Navigtaion ---------------> */
+.navigation {
+	top: 0;
+	position: sticky;
+	z-index: 3;
+	width: 100%;
+	background: white;
+}
+
+.search-input {
+	max-width: 215px;
+	width: 100%;
+	height: 25px;
+	font-size: 14px;
+	border: 1px solid hsl(100, 0%, 80%);
+	border-radius: 3px;
+	background-image: url("../IMG/Vector_search_icon.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-position-x: 70px;
+}
+
+.search-guide {
+	width: 100%;
+	max-width: 215px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.search-input:focus,
+.search-input:not(:placeholder-shown) {
+	outline-color: hsl(0, 0%, 85%);
+	background: none;
+}
+
+.search-input:active {
+	background: none;
+}
+
+
+.search-input::placeholder {
+	color: hsl(0, 0%, 30%);
+	text-align: center;
+}
+
+.nav-content {
+	height: 95px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.left-nav {
+	display: flex;
+	align-items: center;
+}
+
+.right-nav {
+	display: flex;
+	align-items: center;
+}
+
+.left-nav li {
+	margin-right: 30px;
+}
+
+
+.left-nav li a {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: #000000;
+}
+
+.left-nav li a img {
+	margin-left: 15px;
+}
+
+.right-nav {
+	display: flex;
+	align-items: center;
+}
+
+.right-nav li {
+	display: flex;
+	align-items: center;
+}
+
+.right-nav li {
+	margin-left: 19px;
+}
+
+.notification-icon--active img {
+	content: url('../IMG/notif1.png');
+}
+
+.nav-item-profile {
+	cursor: pointer;
+	border-radius: 50%;
+}
+
+.profile-pic {
+	display: block;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+}
+
+/* <----------------Filter list ------------------->*/
+
+.style-list {
+	position: static;
+	float: right;
+	margin: 14px 55px 0 0;
+	font-size: 20px;
+	width: 100%;
+	max-width: 274px;
+	height: auto;
+	font-size: 20px;
+	font-family: inherit;
+}
+
+.styles {
+	color: rgba(0, 0, 0, 0.5);
+	line-height: 24px;
+	font-family: 'Inter', sans-serif;
+	padding-bottom: 17px;
+}
+
+.default-list {
+	width: 100%;
+	height: 40px;
+	border: 1px solid #DBDBDBDB;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	background: #DBDBDB;
+	color: #FFFFFF;
+	letter-spacing: -0.006em;
+	cursor: pointer;
+	font-size: 20px;
+	text-align: left;
+}
+
+
+.filter-list {
+	position: absolute;
+	list-style-type: none;
+	border: 1px solid #DBDBDB;
+	background: #FFFFFF;
+	overflow-y: scroll;
+	max-height: 370px;
+	width: 274px;
+}
+
+.filter-list li {
+	padding: 0 0 20px 9px;
+}
+
+.filter-list li:first-child {
+	margin-top: 10px;
+}
+
+.style-item {
+	text-decoration: none;
+	font-family: 'Inter';
+	font-size: 20px;
+	color: rgba(0, 0, 0, 0.5);
+	letter-spacing: -0.006em;
+}
+
+
+.filter-list::-webkit-scrollbar {
+	width: 7px;
+	height: 36px;
+	background: #DBDBDB;
+}
+
+.filter-list::-webkit-scrollbar-thumb {
+	background: #FFFFFF;
+}
+
+
+
+
+/* <------------- Publications ---------------> */
+.post {
+	width: auto;
+	height: auto;
+	max-width: 1000px;
+	max-height: 1100px;
+	font-size: 20px;
+	margin: 0 0 60px 57px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.post-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 16px;
+}
+
+.author-avatar {
+	width: 42px;
+	height: 42px;
+	cursor: pointer;
+}
+
+.post-header .author-info {
+	display: flex;
+	align-items: center;
+}
+
+
+.post-titles{
+	color: #00000099;
+	font-family: "Inter", sans-serif;
+	display: flex;
+	flex-direction: row;
+}
+
+
+.post-titles span {
+	padding: 0 7px 0 11px;
+}
+
+.author-info img {
+	margin-right: 9px;
+}
+
+.post-img-block {
+	cursor: pointer;
+	background-color: rgb(231, 228, 228, 0.5);
+}
+
+.post-image {
+	margin: 0 auto;
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+
+.post-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 14px 5px 0 5px;
+}
+
+.likes,
+.comments {
+	display: flex;
+	align-items: center;
+}
+
+.likes-icon {
+	width: 35px;
+	height: 35px;
+	content: url('../img/love0.svg')
+}
+
+.active{
+	content: url('../IMG/love.svg');
+}
+
+.comments-icon {
+	width: 35px;
+	height: 35px;
+}
+
+#likes-count,
+#comments-count {
+	margin-right: 10px;
+	color: hsl(100, 0%, 70%);
+}
+
+.likes-btn,
+.comments-btn {
+	border: 1px solid hsl(100, 0%, 89%);
+	background: hsl(100, 0%, 95%);
+	font-size: inherit;
+	cursor: pointer;
+	transition: background-color 0.2s;
+	border-radius: 10px;
+}
+
+
+.likes-btn:hover {
+	background-color: hsl(100, 0%, 88%);
+}
+
+.comments-btn:hover {
+	background-color: hsl(100, 0%, 88%);
+}
+
+
+/* <----------------back button -------------------> */
+
+.back-button {
+	right: 5%;
+	bottom: 20px;
+	position: fixed;
+}
+
+.press-back {
+	border: 1px solid #DBDBDB;
+	border-radius: 50%;
+	width: 45px;
+	height: 45px;
+	bottom: 20px;
+	background-color: #FFFFFF;
+	cursor: pointer;
+}
+
+.press-back:hover{
+	background: hsl(0, 0%, 95%); 
+}
+
+.arrow {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
