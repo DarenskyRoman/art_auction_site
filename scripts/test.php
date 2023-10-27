@@ -1,8 +1,10 @@
 <?php
-	
-	$str = "../../images";
-	echo $str . "\n";
-	$str = preg_replace("/\.\.\//", "", $str, 1);
-	echo $str; // выводит " ../images"
+
+	//массив ответа сервера
+	$response = array();
+
+	session_start();
+
+	$_SESSION['user_id'] = 39;
 
 ?>

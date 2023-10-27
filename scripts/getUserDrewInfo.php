@@ -28,8 +28,9 @@
 		}
 
 		$response['success'] = '1';
-		$response['data'] = $mysqli->query("SELECT painting_id, path_to_paint
+		$response['data'] = $mysqli->query("SELECT painting_id, paintings.name as name, styles.name as style, path_to_paint
 		FROM paintings
+		JOIN styles on styles.style_id = paintings.style_id
 		WHERE author_id = $user_id
 		ORDER BY post_datetime DESC
 		LIMIT $limit OFFSET $offset")->fetch_all(MYSQLI_ASSOC);
