@@ -20,7 +20,7 @@
 		JOIN users on auctions.user_id = users.user_id
 		LEFT JOIN bets on auctions.bet_id = bets.bet_id
 		JOIN styles on paintings.style_id = styles.style_id
-		WHERE end_date >= '$today' and (bet != buyout_price or ISNULL(auctions.bet_id))
+		WHERE auctions.is_current = 1
 		ORDER BY start_date DESC
 		LIMIT $limit OFFSET $offset")->fetch_all(MYSQLI_ASSOC);
 		$response['success'] = '1';

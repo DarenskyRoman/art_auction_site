@@ -10,7 +10,6 @@
 		$limit = $_POST['limit'];
 		$offset = $_POST['offset'];
 		$auctions = implode(',', $_POST['auctions']);
-		var_dump($auctions);
 
 		$response['data'] = $mysqli->query("SELECT auctions.auction_id, IFNULL(bets.bet, 0) as bet
 			FROM auctions
