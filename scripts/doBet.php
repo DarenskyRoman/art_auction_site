@@ -23,6 +23,20 @@
 		}
 		else {
 			$balance -= $bet;
+
+			$last_better = $mysqli->query("SELECT bets.user_id FROM bets
+				JOIN auctions ON bets.bet_id = auctions.bet_id
+				WHERE auctions.auction_id = $auction_id LIMIT 1")->fetch_assoc()['user_id'];
+
+			if ($user_id != $last_better) {
+				$mysqli->query("INSERT INTO notifications (user_id, message, icon)
+								SELECT bets.user_id, 'you bet was outbit', paintings.path_to_paint
+								FROM auctions
+								LEFT JOIN bets ON auctions.bet_id = bets.bet_id
+								JOIN paintings ON auctions.painting_id = paintings.painting_id
+								WHERE auctions.auction_id = $auction_id");
+			}
+
 			$mysqli->query("INSERT INTO bets (auction_id, user_id, bet, bet_time)
 				VALUES ('$auction_id', '$user_id', '$bet', '$bet_time')");
 			$bet_id = $mysqli->insert_id;

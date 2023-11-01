@@ -21,6 +21,13 @@
 
 		$last_comment['last_comment_id'] = $mysqli->insert_id;
 
+		$mysqli->query("INSERT INTO notifications (user_id, message, icon)
+					 	SELECT paintings.author_id, CONCAT(users.login, ' commented your painting'), paintings.path_to_paint
+						FROM comments
+						JOIN paintings ON comments.painting_id = paintings.painting_id
+						JOIN users ON comments.user_id = users.user_id
+						WHERE comment_id = $last_comment[last_comment_id]");
+
 		$comments = $mysqli->query("SELECT comments FROM paintings WHERE painting_id = '$painting_id' LIMIT 1")->fetch_assoc();
 		$comments['comments'] = $comments['comments'] + 1;
 

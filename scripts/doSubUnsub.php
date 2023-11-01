@@ -21,6 +21,15 @@
 
 			$mysqli->query("INSERT INTO subscribtions (follower_id, following_id) VALUES ($user_id, $following_id)");
 
+			$last_subscribtion_id = $mysqli->insert_id;
+
+			$mysqli->query("INSERT INTO notifications (user_id, message, icon)
+						 VALUES (
+						 	$following_id,
+						 	(SELECT CONCAT(login, ' subscribed to you') FROM users WHERE user_id = '$user_id'),
+						 	(SELECT profile_picture FROM users WHERE user_id = '$user_id')
+						 )");
+
 		}
 
 		//если подписаны - отписываемся

@@ -22,6 +22,13 @@
 			$mysqli->query("INSERT INTO likes (painting_id, user_id) VALUES ($painting_id, $user_id)");
 			$likes = $mysqli->query("SELECT likes FROM paintings WHERE painting_id = '$painting_id' LIMIT 1")->fetch_assoc();
 			$likes['likes'] = $likes['likes'] + 1;
+			
+			$mysqli->query("INSERT INTO notifications (user_id, message, icon)
+						 VALUES (
+						 	(SELECT author_id FROM paintings WHERE painting_id = '$painting_id'),
+						 	(SELECT CONCAT(login, ' liked your painting') FROM users WHERE user_id = '$user_id'),
+						 	(SELECT path_to_paint FROM paintings WHERE painting_id = '$painting_id')
+						 )");
 
 		}
 
